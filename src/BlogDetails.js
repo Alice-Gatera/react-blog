@@ -5,7 +5,8 @@ import {useDispatch, connect} from 'react-redux'
 import { deleteBlog } from '../src/store/actions/blogActions'
 import { signIn } from '../src/store/actions/authActions'
 import { useSelector} from 'react-redux'
-
+import CommentBlog from '../src/CommentBlog'
+import Comments from '../src/comment'
 
 
 const BlogDetails = () => {
@@ -15,18 +16,11 @@ const BlogDetails = () => {
 const dispatch= useDispatch()
   const handleDelete = (e) =>{
     e.preventDefault()
-    // fetch('http://localhost:8000/blogs/' + id, {
-    //   method: 'DELETE'
-
-    // }).then(()=>{
-    //   history.push('/');
-    // })
     dispatch (deleteBlog(id))
         history.push('/');
-
   }
-  // const auth= useSelector( state=> state.auth )
-  const auth= this.props()
+  const auth= localStorage.getItem('token')
+  
 
   return (
     <div className="blog-details">
@@ -44,8 +38,10 @@ const dispatch= useDispatch()
       {blog && <button onClick={handleDelete}>Delete</button>}
       {blog && <Link to ={`/blogs/edit/${blog.id}`}>Edit</Link>}
       </div> : <div><p>Share</p></div>} 
-   
-
+ 
+      <Comments blog= {blog}/>
+      {blog && console.log(blog.comment)}
+      {blog && <CommentBlog comments= {blog.comment} />}
     </div>
   );
 }
@@ -63,3 +59,4 @@ const mapDispatchToProps = (dispatch)=>{
 }
  
 export default connect (mapStateToProps,mapDispatchToProps) (BlogDetails);
+

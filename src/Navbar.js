@@ -13,7 +13,9 @@ class Navbar extends Component{
     }
    
   render() {
-    const {auth} = this.props;
+    // const {auth} = this.props;
+    const auth= localStorage.getItem('token')
+  
   
     return (
         <nav className="navbar">

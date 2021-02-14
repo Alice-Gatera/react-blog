@@ -139,13 +139,14 @@ form input
   box-sizing: border-box;
   display: block;
 }
-form button {
+form button, form a {
   background: #917c82;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
 }
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),

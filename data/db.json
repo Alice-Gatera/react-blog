@@ -5,6 +5,7 @@
       "snippet": " React is an open-source, front end, JavaScript library for building user interfaces or UI ",
       "body": "Why do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n\nWhere can I get some?\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
       "author": "mario",
+      "comment": [],
       "id": 1
     },
     {
@@ -12,6 +13,7 @@
       "snippet": " React is an open-source, front end, JavaScript library for building user interfaces or UI ",
       "body": "Why do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\n\n\nWhere does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.\n\nWhere can I get some?\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
       "author": "yoshi",
+      "comment": [],
       "id": 2
     },
     {
@@ -19,6 +21,7 @@
       "snippet": " React is an open-source, front end, JavaScript library for building user interfaces or UI ",
       "body": "Happiness is an emotional state characterized by feelings of joy, satisfaction, contentment, and fulfillment. While happiness has many different definitions, it is often described as involving positive emotions and life satisfaction. \n\n\nWhen most people talk about happiness, they might be talking about how they feel in the present moment, or they might be referring to a more general sense of how they feel about life overall.\n\nBecause happiness tends to be such a broadly defined term, psychologists and other social scientists typically use the term 'subjective well-being' when they talk about this emotional state. Just as it sounds, subjective well-being tends to focus on an individual's overall personal feelings about their life in the present.  \n\nTwo key components of happiness (or subjective well-being) are:\n\nThe balance of emotions: Everyone experiences both positive and negative emotions, feelings, and moods. Happiness is generally linked to experiencing more positive feelings than negative.\nLife satisfaction: This relates to how satisfied you feel with different areas of your life including your relationships, work, achievements, and other things that you consider important.",
       "author": "Alice",
+      "comment": [],
       "id": 4
     },
     {
@@ -26,6 +29,32 @@
       "snippet": " \"snippet\": \" React is an open-source, front end, JavaScript library for building user interfaces or UI \",",
       "body": "Components\nReact code is made of entities called components. Components can be rendered to a particular element in the DOM using the React DOM library. When rendering a component, one can pass in values that are known as \"props\":[10]\n\nReactDOM.render(<Greeter greeting=\"Hello World!\" />, document.getElementById('myReactApp'));\nThe two primary ways of declaring components in React is via functional components and class-based components.\n\nFunctional components\nFunctional components are declared with a function that then returns some JSX.\n\nconst Greeting = (props) => <div>Hello, {props.name}!</div>;\nClass-based components\nClass-based components are declared using ES6 classes.\n\nclass ParentComponent extends React.Component {\n  state = { color: 'green' };\n  render() {\n    return (\n      <ChildComponent color={this.state.color} />\n    );\n  }\n}\nVirtual DOM\nAnother notable feature is the use of a virtual Document Object Model, or virtual DOM. React creates an in-memory data-structure cache, computes the resulting differences, and then updates the browser's displayed DOM efficiently.[11] This process is called reconciliation. This allows the programmer to write code as if the entire page is rendered on each change, while the React libraries only render subcomponents that actually change. This selective rendering provides a major performance boost.[citation needed] It saves the effort of recalculating the CSS style, layout for the page and rendering for the entire page.[citation needed]\n\nLifecycle methods\nLifecycle methods use a form of hooking that allows the execution of code at set points during a component's lifetime.\n\nshouldComponentUpdate allows the developer to prevent unnecessary re-rendering of a component by returning false if a render is not required.\ncomponentDidMount is called once the component has \"mounted\" (the component has been created in the user interface, often by associating it with a DOM node). This is commonly used to trigger data loading from a remote source via an API.\ncomponentWillUnmount is called immediately before the component is torn down or \"unmounted\". This is commonly used to clear resource-demanding dependencies to the component that will not simply be removed with the unmounting of the component (e.g., removing any setInterval() instances that are related to the component, or an \"eventListener\" set on the \"document\" because of the presence of the component)\nrender is the most important lifecycle method and the only required one in any component. It is usually called every time the component's state is updated, which should be reflected in the user interface.",
       "author": "Alice",
+      "comment": [
+        {
+          "email": "kaliza@gmail.com",
+          "comment": "fantastic"
+        },
+        {
+          "email": "kaliza@gmail.com",
+          "comment": "fantastic"
+        },
+        {
+          "email": "kaliza@gmail.com",
+          "comment": "fantastic"
+        },
+        {
+          "email": "gatera123@gmail.com",
+          "comment": "great work"
+        },
+        {
+          "email": "damour@gmail.com",
+          "comment": "wow"
+        },
+        {
+          "email": "sheja@gmail.com",
+          "comment": "nice"
+        }
+      ],
       "id": 5
     },
     {
@@ -33,7 +62,33 @@
       "snippet": "testing 1",
       "body": "testing testinggggggg",
       "author": "Alice",
+      "comment": [
+        {
+          "email": "sheja@gmail.com",
+          "comment": "nice"
+        },
+        {
+          "email": "sheja@gmail.com",
+          "comment": "nice"
+        },
+        {
+          "email": "KALIZA@GMAIL.COM",
+          "comment": "nice"
+        },
+        {
+          "email": "kozemamy@yahoo.fr",
+          "comment": "wow"
+        }
+      ],
       "id": 8
+    },
+    {
+      "title": "kigali",
+      "snippet": "kigali",
+      "body": "kigali",
+      "author": "Alice",
+      "comment": [],
+      "id": 9
     }
   ],
   "user": [

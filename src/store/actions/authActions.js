@@ -7,7 +7,7 @@ export const signIn = (credentials)=>{
        const response = await axios.get(' http://localhost:8000/user');
        // console.log(response.data[0])
        if(credentials.email===response.data[0].email && credentials.password===response.data[0].password){
-    
+        localStorage.setItem('token',credentials.email);
          
          console.log('match');
            dispatch({
@@ -35,6 +35,7 @@ export const signUp = (userInfo)=>{
    }
 }
 export const logout = ()=>{
+    localStorage.removeItem('token')
    return {
        type: 'LOGOUT',
        auth: false

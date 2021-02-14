@@ -16,7 +16,7 @@ const blog ={
 }
 
 describe('testing blog reducer', ()=>{
-    test('CREATE-BLOG-Success', ()=>{
+    it('should create blog successiful', ()=>{
         const action ={
             type:'CREATE-BLOG-Success', 
             payload:blog
@@ -24,12 +24,29 @@ describe('testing blog reducer', ()=>{
         const reducer = blogReducer(initState, action)
         expect(reducer.data).toBe(blog)
     })
-    test ('CREATE-BLOG-fail', ()=>{
-        const action ={
-            type:'CREATE-BLOG-fail',
-             payload:err
-        }
-        const reducer = blogReducer(initState, action)
-        expect(reducer.err).toBe(err)
+
+    it('Should fail  to create blog', () => {
+        expect(blogReducer(undefined, {
+         type: 'CREATE-BLOG-FAIL',
+         error: 'blog  not created'
+        
+        })
+        )
     })
+    it('should delete a blog', ()=>{
+expect (blogReducer(undefined, {
+    type:'DELETE-BLOG-Success',
+     payload: 'blog deleted successifuly'
+}))
+
+    })
+    it('should not delete a blog',()=>{
+        expect(blogReducer(undefined,{
+            type: 'DELETE-BLOG-Fail',
+             error: 'blog not deleted'
+        }))
+    })
+    
+
 })
+
