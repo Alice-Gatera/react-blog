@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 
-export const signIn = (credentials)=>{
+export const  signIn= (credentials)=>{
    return async (dispatch, getState)=>{
        const response = await axios.get(' http://localhost:8000/user');
        // console.log(response.data[0])
@@ -22,18 +22,18 @@ export const signIn = (credentials)=>{
        }
    }
 }
-export const signUp = (userInfo)=>{
-   return async (dispatch, getState)=>{
-       await fetch(' http://localhost:8000/user',{
-           method: 'POST',
-           headers: {'Content-Type': 'application/json'},
-           body: JSON.stringify(userInfo)
-       })
-       dispatch({
-           type: 'SIGNUP_USER'
-       })
-   }
-}
+// export const signUp = (userInfo)=>{
+//    return async (dispatch, getState)=>{
+//        await fetch(' http://localhost:8000/user',{
+//            method: 'POST',
+//            headers: {'Content-Type': 'application/json'},
+//            body: JSON.stringify(userInfo)
+//        })
+//        dispatch({
+//            type: 'SIGNUP_USER'
+//        })
+//    }
+// }
 export const logout = ()=>{
     localStorage.removeItem('token')
    return {

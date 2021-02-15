@@ -19,17 +19,17 @@ const blogReducer = (state = initState, action) => {
             console.log(' blog not created', action.payload);
             return{data: null, error:action.payload}
 
-            case 'FETCH_BLOGS':
-                return {
-                  ...state,
-                  blogs: action.payload
-                }
+            // case 'FETCH_BLOGS':
+            //     return {
+            //       ...state,
+            //       blogs: action.payload
+            //     }
 
-            case 'ADD_COMMENT':
-            return{
-                ...state,
-                blogs:action.blog
-            }
+            // case 'ADD_COMMENT':
+            // return{
+            //     ...state,
+            //     blogs:action.blog
+            // }
         default:
             return state
     }

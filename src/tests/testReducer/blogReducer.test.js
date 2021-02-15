@@ -1,4 +1,5 @@
 import blogReducer from '../../../src/store/reducers/blogReducer'
+import deleteBlogReducer from '../../store/reducers/deleteBlogReducer'
 
  const initState ={
     data:null,
@@ -24,29 +25,60 @@ describe('testing blog reducer', ()=>{
         const reducer = blogReducer(initState, action)
         expect(reducer.data).toBe(blog)
     })
+    it('should  fail to create blog successiful', ()=>{
+        const action ={
+            type:'CREATE-BLOG-FAIL', 
+            payload:'blog not created'
+        }
+        const reducer = blogReducer(initState, action)
+        expect(reducer.data).toBe(null)
+        expect(reducer.error).toBe('blog not created')
+    })
 
-    it('Should fail  to create blog', () => {
-        expect(blogReducer(undefined, {
-         type: 'CREATE-BLOG-FAIL',
-         error: 'blog  not created'
+    // it('Should fail  to create blog', () => {
+    //     expect(blogReducer(undefined, {
+    //      type: 'CREATE-BLOG-FAIL',
+    //      error: 'blog  not created'
         
-        })
-        )
-    })
-    it('should delete a blog', ()=>{
-expect (blogReducer(undefined, {
-    type:'DELETE-BLOG-Success',
-     payload: 'blog deleted successifuly'
-}))
+    //     })
+    //     )
+    // })
+//     it('should delete a blog', ()=>{
+// expect (blogReducer(undefined, {
+//     type:'DELETE-BLOG-Success',
+//      payload: 'blog deleted successifuly'
+// }))
 
-    })
-    it('should not delete a blog',()=>{
-        expect(blogReducer(undefined,{
-            type: 'DELETE-BLOG-Fail',
-             error: 'blog not deleted'
-        }))
-    })
+//     })
+    // it('should not delete a blog',()=>{
+    //     expect(blogReducer(undefined,{
+    //         type: 'DELETE-BLOG-Fail',
+    //          error: 'blog not deleted'
+    //     }))
+    // })
+    it('should delete blog  successiful', ()=>{
+        const action ={
+            type:'DELETE-BLOG-Success',
+            payload: 'blog deleted successifuly'
+        }
+        const reducer = deleteBlogReducer(initState, action)
+        expect(reducer.message ).toBe('blog deleted successifuly')
+        expect(reducer.error).toBe(null)
+    
     
 
 })
+it('should  fail to delete blog ', ()=>{
+    const action ={
+        type:'DELETE-BLOG-Fail',
+        payload: 'blog not deleted'
+    }
+    const reducer = deleteBlogReducer(initState, action)
+    expect(reducer.message ).toBe(null)
+    expect(reducer.error).toBe('blog not deleted')
 
+
+
+})
+
+})

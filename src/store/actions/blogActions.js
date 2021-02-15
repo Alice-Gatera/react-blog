@@ -11,8 +11,7 @@ export const createBlog = ( blog ) => {
             console.log('failed to add', err);
             dispatch({type:'CREATE-BLOG-FAIL', error:err})
         })
-        //make async call to database
-        // dispatch({type:'CREATE-BLOG', blog:blog})   
+           
     }) 
 }
 

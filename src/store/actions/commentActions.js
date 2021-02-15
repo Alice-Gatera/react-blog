@@ -1,31 +1,21 @@
 import axios from 'axios'
 export const ADD_COMMENT = "ADD_COMMENT"
 export const GET_COMMENT = "GET_COMMENT"
-// export const commentAction = (comment)=>dispatch=>{
-//     fetch('http://localhost:8000/comments',{
-//         method:'POST',
-//         headers: {"Content-Type": "application/json"},
-//         body: JSON.stringify(comment)
-//     })
-//    .then(res=>res.json())
-//    .then(data=>dispatch({
-//        type:'ADD_COMMENT',
-//        payload:data
-//    }))
-// }
+
 export const commentAction = (blog, comment)=>dispatch=>{
+    console.log("here in blog", blog)
     blog.comment.push(comment);
-   axios.put(`http://localhost:8000/blogs/${blog.id}`, blog).then(data=>{
+   return axios.put(`http://localhost:8000/blogs/${blog.id}`, blog).then(data=>{
         dispatch({
             type: "ADD_COMMENT",
             blog
         })
    })
-//console.log(blog)
+// console.log(blog)
 }
 export const getCommentAction = (comment)=>dispatch=>{
-   setTimeout(() => {
-    fetch('http://localhost:8000/comments')
+//    setTimeout(() => {
+  return  fetch('http://localhost:8000/comments')
     .then(res=>res.json())
     .then(data=>{
         dispatch({
@@ -34,5 +24,5 @@ export const getCommentAction = (comment)=>dispatch=>{
     })
     console.log(data)})
     .catch(error=> console.log(error.message))
-   }, 2000);
+//    }, 1000);
 }

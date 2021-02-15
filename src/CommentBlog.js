@@ -2,11 +2,9 @@ import {Component, useEffect} from "react";
 import {getCommentAction} from '../src/store/actions/commentActions'
 import {connect} from 'react-redux'
 import { render } from "@testing-library/react";
+
 class CommentBlog extends Component  {
-    // componentWillMount(){
-    //     this.props.getCommentAction()
-    // }
-    // const {data:comments, isPending, error} = useFetch('http://localhost:8000/comments');
+    
     render(){
     const {comments} = this.props;
     let i=1;
@@ -26,7 +24,5 @@ class CommentBlog extends Component  {
      );
 }
 }
-// const mapStateToProps = state=>({
-//    comments:state.comment.comments
-// })
+
 export default connect(null,{getCommentAction})(CommentBlog);

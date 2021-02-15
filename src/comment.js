@@ -31,7 +31,7 @@ class Comments extends Component  {
                 <form >
                      <div className="input-field1">
                      <label htmlFor="email">Email</label>
-                    <input type="email" id='email' value={this.state.email} placeholder="example@example.com" required onChange={this.handleChange}/>
+                    <input type="email" id='email' value={this.state.email} placeholder="" required onChange={this.handleChange}/>
                     </div>
                     <div className="input-field1">
                     <label htmlFor="comment"> Comment </label>
