@@ -22,6 +22,7 @@ html{
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
+ height: 8px; 
 }
 .navbar h1 {
   color: #917c82;
@@ -37,11 +38,11 @@ html{
 .navbar a:hover {
   color: #917c82;
 }
-.content {
+ .content {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-}
+} 
 
 /* blog previews / list */
 .blog-preview {

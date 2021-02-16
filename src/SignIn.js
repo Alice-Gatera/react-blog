@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Redirect} from 'react-router-dom'
 import { signIn} from '../src/store/actions/authActions'
+import TextField from '@material-ui/core/TextField'
 
-
+import Button from '@material-ui/core/Button'
+import SaveIcon from '@material-ui/icons/Save'
 class Login extends Component {
   state = {
       email: '',
@@ -28,14 +30,18 @@ class Login extends Component {
               <form className='auth-form' onSubmit={this.handleSubmit}>
                   <div className="input-group">
                       <label htmlFor="email">Email</label>
-                      <input id='email' type="email" placeholder='' required onChange={this.handleChange}/>
+                      <TextField variant="filled" id='email' type="email" placeholder='' required onChange={this.handleChange}/>
                   </div>
                   <div className="input-group">
                       <label htmlFor="password">password</label>
-                      <input id='password' type="password" placeholder='' required onChange={this.handleChange}/>
+                      <TextField variant="filled" id='password' type="password" placeholder='' required onChange={this.handleChange}/>
                   </div>
                   <div className="input-group">
-                      <button>Login</button>
+                      {/* <button>Login</button> */}
+                     
+                  <Button type= "submit" startIcon={<SaveIcon />} size="small"
+                  variant="contained" color="secondary">Login</Button>
+                
                   </div>
               </form>
           </div>
