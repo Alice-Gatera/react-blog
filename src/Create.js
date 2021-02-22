@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 import { connect,  useDispatch} from 'react-redux'
 import { createBlog} from '../src/store/actions/blogActions'
 
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+
+
 
 
 const Create = () => {
@@ -11,12 +14,12 @@ const Create = () => {
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('Alice');
   const history = useHistory();
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
  
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title,snippet, body, author };
-    dispatch (createBlog(blog)) 
+    // dispatch (createBlog(blog)) 
     history.push('/');
 
 
@@ -31,8 +34,8 @@ const Create = () => {
   }
 
   return (
-    <div className="create">
-      <h2>Add a New Blog</h2>
+    <Card className="create">
+      <Typography>Add a New Blog</Typography>
       <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input 
@@ -60,7 +63,7 @@ const Create = () => {
         </select>
         <button>Add Blog</button>
       </form>
-    </div>
+    </Card>
   );
 }
  const mapDispatchToProps =() =>{
@@ -68,5 +71,6 @@ const Create = () => {
      createBlog:(blog) => dispatchEvent(createBlog(blog))
    }
  }
+ export{Create}
 export default connect(null, mapDispatchToProps)(Create);
 

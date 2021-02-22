@@ -31,7 +31,7 @@ describe('testing blog reducer', ()=>{
             payload:'blog not created'
         }
         const reducer = blogReducer(initState, action)
-        expect(reducer.data).toBe(null)
+        expect(reducer.data).toBe(undefined)
         expect(reducer.error).toBe('blog not created')
     })
 

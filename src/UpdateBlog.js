@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useParams} from "react-router-dom";
 import { connect,  useDispatch} from 'react-redux'
 import { createBlog} from '../src/store/actions/blogActions'
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+
 import useFetch from "./useFetch";
 import axios from 'axios'
 
@@ -49,8 +51,8 @@ const UpdateBlog = () => {
   }
 
   return (
-    <div className="create">
-      <h2>Edit a Blog</h2>
+    <Card className="create">
+      <Typography>Edit a Blog</Typography>
       <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input 
@@ -78,7 +80,7 @@ const UpdateBlog = () => {
         </select>
         <button>Update Blog</button>
       </form>
-    </div>
+    </Card>
   );
 }
 //  const mapDispatchToProps =() =>{

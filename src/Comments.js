@@ -1,5 +1,5 @@
 import { Component, useHistory } from "react";
-import {commentAction} from '../src/store/actions/commentActions'
+import {commentAction} from './store/actions/commentActions'
 import {connect} from 'react-redux'
 
 class Comments extends Component  {
@@ -45,6 +45,7 @@ class Comments extends Component  {
          );
     }
 }
+export{Comments}
 export default connect(null,{commentAction})(Comments);
 
 

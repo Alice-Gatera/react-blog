@@ -58,10 +58,10 @@ const Home = () => {
     </div>
   );
 }
-const mapStateToProps = (state) =>{
-  return{
-    blogs:state.blog.blogs
-  }
-}
+// const mapStateToProps = (state) =>{
+//   return{
+//     blogs:state.blog.blogs
+//   }
+// }
  
-export default compose(connect(mapStateToProps))(Home);
+export default Home

@@ -1,62 +1,68 @@
-import { useParams} from "react-router-dom";
-import useFetch from "./useFetch";
-import { useHistory, Link } from "react-router-dom";
-import {useDispatch, connect} from 'react-redux'
-import { deleteBlog } from '../src/store/actions/blogActions'
-import { signIn } from '../src/store/actions/authActions'
-import { useSelector} from 'react-redux'
-import CommentBlog from '../src/CommentBlog'
-import Comments from '../src/comment'
+import { Component } from "react";
+import Comments from "./Comments";
+import { connect } from 'react-redux';
+import { deleteBlog } from '../src/store/actions/blogActions';
+import { Link } from "react-router-dom";
+import CommentBlog from './CommentBlog'
+import DeleteIcon from '@material-ui/icons/Delete'
+import Button from '@material-ui/core/Button'
+class BlogDetails extends Component {
+    handleClick = ()=>{
+        this.props.deleteBlog(this.props.blogs.id);
+        this.props.history.push('/blogs');
+    }
+    render(){
+        const {blogs} = this.props;
+        {blogs && console.log(blogs)}
+
+        const { auth }= this.props;
+        return (
+            <div className="blog-details">
+                {blogs && (
+                    <article>
+                        <h2>{blogs.title}</h2>
+                        <div>{blogs.body}</div>
+                        <p>Writen by {blogs.author}</p>
+                        {auth &&<Button startIcon={<DeleteIcon/>} variant="contained" color="primary" onClick={this.handleClick}>delete</Button>}
+                        {auth && <Button> <Link to ={`/edit/${blogs.id}`}>Edit</Link></Button>}
+                        <Comments blog= {blogs}/>
+                        <CommentBlog comments= {blogs.comment} />
+                    </article>
+                )}
+            </div>
+         );
+    }
+    }
+    const mapStateToProps = (state, ownProps)=>{
+        const id = ownProps.match.params.id;
+        return {
+            blogs: state.blog.blogs.find(blog=> blog.id==id),
+            
+
+            auth: state.auth.auth
+        }
+    }
+    const mapDispatchToProps = (dispatch)=>{
+        return {
+            deleteBlog: (id)=> dispatch(deleteBlog(id))
+        }
+    }
+export {BlogDetails}
+export default connect(mapStateToProps, mapDispatchToProps)(BlogDetails);
 
 
-const BlogDetails = () => {
-  const { id } = useParams();
-  const history = useHistory();
-  const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
-const dispatch= useDispatch()
-  const handleDelete = (e) =>{
-    e.preventDefault()
-    dispatch (deleteBlog(id))
-        history.push('/');
-  }
-  const auth= localStorage.getItem('token')
-  
 
-  return (
-    <div className="blog-details">
-      { isPending && <div>Loading...</div> }
-      { error && <div>{ error }</div> }
-      { blog && (
-        <article>
-          <h2>{ blog.title }</h2>
-          <p>Written by { blog.author }</p>
-          <div>{ blog.body }</div>
-        </article>
-       
-      )}
-      {auth ? <div>
-      {blog && <button onClick={handleDelete}>Delete</button>}
-      {blog && <Link to ={`/blogs/edit/${blog.id}`}>Edit</Link>}
-      </div> : <div><p>Share</p></div>} 
- 
-      <Comments blog= {blog}/>
-      {blog && console.log(blog.comment)}
-      {blog && <CommentBlog comments= {blog.comment} />}
-    </div>
-  );
-}
-const mapStateToProps = (state, ownProps)=>{
-  return{
-    
-      auth: state.auth.auth
 
-  }
-}
-const mapDispatchToProps = (dispatch)=>{
-  return {
-      deleteBlog: (id)=> dispatch(deleteBlog(id))
-  }
-}
- 
-export default connect (mapStateToProps,mapDispatchToProps) (BlogDetails);
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -24,5 +24,5 @@ class CommentBlog extends Component  {
      );
 }
 }
-
+export{CommentBlog}
 export default connect(null,{getCommentAction})(CommentBlog);

@@ -11,7 +11,7 @@ import {  useSelector} from 'react-redux'
 
 
 function App() {
-  const auth= useSelector( state=> state.auth )
+  // const auth= useSelector( state=> state.auth )
   return (
     <Router>
       <div className="App">
@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/blogs/:id" component = {BlogDetails}/>
             <Route path="/blogs/edit/:id" component ={ UpdateBlog}/>
             <Route path="/login" component ={SignIn}/> 
-            <Route path="/signup"> <SignUp /></Route>
+            {/* <Route path="/signup"> <SignUp /></Route> */}
             <Route path="*" component={NotFound} />
              </Switch>
         </div>
@@ -37,5 +37,5 @@ function App() {
 //   }
 // }
  
-
+export {App}
 export default App;

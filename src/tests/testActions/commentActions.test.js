@@ -58,22 +58,22 @@ it('posts  Blog  comment successful', () => {
       expect(expectedActions[0].type).toEqual('ADD_COMMENT')
     })
   })
-  it('should get  blog  comment', () => {
+  // it('should get  blog  comment', () => {
 
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent()
-      request.respondWith({
-       status: 200,
-       response: newComment
+  //   moxios.wait(() => {
+  //     const request = moxios.requests.mostRecent()
+  //     request.respondWith({
+  //      status: 200,
+  //      response: newComment
          
       
-       })
-    })
-    return store.dispatch(actions.getCommentAction()).then(() => {
-      const expectedActions = store.getActions();
-      expect(expectedActions[0].type).toEqual('GET_COMMENT')
-    })
-  })
+  //      })
+  //   })
+  //   return store.dispatch(actions.getCommentAction()).then(() => {
+  //     const expectedActions = store.getActions();
+  //     expect(expectedActions[0].type).toEqual('GET_COMMENT')
+  //   })
+  // })
 
 
 })

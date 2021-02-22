@@ -35,7 +35,6 @@ import { Tabs, makeStyles, Typography} from '@material-ui/core'
 
 class Navbar extends Component{
 
- 
     handleClick = (e) => {
        this.props.logUserOut();
     }
@@ -43,22 +42,20 @@ class Navbar extends Component{
   render() {
     // const {auth} = this.props;
     const auth= localStorage.getItem('token')
-
-    
   
     //   const classes = useStyles()
     return (
       
-        <AppBar position="static" color="transparent" >
-        <Toolbar variant="h10" className="navbar">
+        <AppBar position="static" color="#b0bec5" >
+        <Toolbar variant="h10" className="navbar" color=" #b0bec5">
                <Typography ><Link to='/'>Home</Link></Typography> 
                 <Typography><Link to='/about'>About</Link></Typography> 
                  <Typography><Link to='/contact'>Contact</Link></Typography>
                 {/* <Link to='/blogs'>Blogs</Link>  */}
                 {/* {!auth &&<Link to='/signup'>Sign up</Link>} */}
-                {!auth && <Link to='/login'>Login</Link>}
-                {auth && <Link to='/create'>New blog</Link>}
-                {auth && <a  href="/" onClick={this.handleClick}>Logout</a>}
+                <Typography>{!auth && <Link to='/login'>Login</Link>}</Typography>
+               <Typography> {auth && <Link to='/create'>New blog</Link>}</Typography>
+                <Typography>{auth && <a  href="/" onClick={this.handleClick}>Logout</a>}</Typography>
             </Toolbar>
         </AppBar>
      );
@@ -74,4 +71,5 @@ const mapDispatchToProps = (dispatch)=>{
         logUserOut: ()=> dispatch(logout())
     }
 }
+export{Navbar}
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

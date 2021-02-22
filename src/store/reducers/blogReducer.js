@@ -5,7 +5,7 @@ const initState={
 //         {id: '2', title: 'collect all the stars',snippet: 'blah blah blah', body:' mya mya mya'},
 //         {id: '3', title: 'egg hunt with yoshi', snippet: 'blah blah blah', body:' mya mya mya'}
 // ]
-data: null,
+blogs: [],
 error:null
 }
 
@@ -17,7 +17,7 @@ const blogReducer = (state = initState, action) => {
         return{ data:action.payload, error:null}
         case 'CREATE-BLOG-FAIL':
             console.log(' blog not created', action.payload);
-            return{data: null, error:action.payload}
+            return{blogs: null, error:action.payload}
 
             // case 'FETCH_BLOGS':
             //     return {
