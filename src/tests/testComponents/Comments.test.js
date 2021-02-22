@@ -2,9 +2,19 @@ import {Comments} from '../../Comments'
 import {shallow,mount} from 'enzyme';
 import Button from '@material-ui/core/Button'
 import { Card, TextField, Typography } from "@material-ui/core";
-import Enzyme from 'enzyme'
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
-Enzyme.configure({ adapter: new Adapter() });
+
+import { Provider } from "react-redux";
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk'
+import {act} from 'react-dom/test-utils'
+import { BrowserRouter as Router } from "react-router-dom";
+
+
+
+const middlewares = [thunk]
+const mockStore = configureStore(middlewares);
+let store;
+
 const props={
     blogs:{
         title: "Microsoft Office",
@@ -28,20 +38,44 @@ getCommentAction:jest.fn(),
 commentAction:jest.fn()
 }
 test('Testing comments component ', () => {
-const wrapper= shallow(<Comments {...props}/>)
-// expect(wrapper.find('form').length).toEqual(1)
+  store = mockStore({
+    blogs: props,
+  });
+const wrapper = mount(<Provider store={store}><Comments  {...props}/></Provider>)
 expect(wrapper.find(Card).length).toEqual(0)
 expect(wrapper.find('form').length).toEqual(1)
 expect(wrapper.find(Typography).length).toEqual(0)
-expect(wrapper.find(TextField).length).toEqual(2)
-expect(wrapper.find(Button).length).toEqual(1)
+expect(wrapper.find(TextField).length).toEqual(0)
+expect(wrapper.find(Button).length).toEqual(0)
 });
 test('Testing comments component when not logged in ', () => {
     const prop = props
     prop.auth=false
-    const wrapper= shallow(<Comments {...props}/>)
+    const wrapper = mount(<Provider store={store}><Comments  {...props}/></Provider>)
     expect(wrapper.find('form').length).toEqual(1)
     expect(wrapper.find(Typography).length).toEqual(0)
-    expect(wrapper.find(TextField).length).toEqual(2)
-    expect(wrapper.find(Button).length).toEqual(1)
+    expect(wrapper.find(TextField).length).toEqual(0)
+    expect(wrapper.find(Button).length).toEqual(0)
 });
+
+describe('Functionalities', () => {
+  it('should call onChange prop with input value', () => {
+  
+          const onSearchMock = jest.fn();
+          const component = mount(<Comments onChange={onSearchMock} {...props} value="custom value" />);
+          act( () => {   
+              component.find('#comment').simulate('change');
+          })
+
+  
+  });
+  it('should call onSubmit o', () => {
+        
+    const onSubmit = jest.fn();
+    const component = mount(<Router><Comments onSubmit={onSubmit} {...props} values="custom value" /></Router>);
+    act( () => {   
+        component.find('[type="submit"]').first().simulate('click');
+    })
+
+});
+})
