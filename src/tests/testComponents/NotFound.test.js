@@ -1,9 +1,6 @@
-import {NotFound} from '../../NotFound'
+import NotFound from '../../NotFound'
 import {shallow,mount} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
-import Enzyme from 'enzyme'
 
-Enzyme.configure({ adapter: new Adapter() });
 
 test('Testing NotFound component ', () => {
     const wrapper= shallow(<NotFound/>)

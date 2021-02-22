@@ -58,4 +58,5 @@ const mapDispatchToProps=(dispatch)=>{
       signIn: (credentials)=> dispatch(signIn(credentials))
   }
 }
+export {Login}
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

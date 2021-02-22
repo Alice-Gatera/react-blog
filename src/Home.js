@@ -63,5 +63,5 @@ const Home = () => {
 //     blogs:state.blog.blogs
 //   }
 // }
- 
+ export {Home}
 export default Home
