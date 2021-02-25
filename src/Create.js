@@ -61,7 +61,7 @@ const Create = () => {
           <option value="Gatera">Gatera</option>
           <option value="niwe">Niwemutoni</option>
         </select>
-        <button>Add Blog</button>
+        <button type='submit'>Add Blog</button>
       </form>
     </Card>
   );

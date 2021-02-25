@@ -48,8 +48,8 @@ expect(wrapper.find('select').length).toEqual(1)
 expect(wrapper.find('label').length).toEqual(4)
 expect(wrapper.find('option').length).toEqual(3)
 expect(wrapper.find(TextField).length).toEqual(0)
-expect(wrapper.find(Button).length).toEqual(0)
-expect(wrapper.find(Navbars).length).toEqual(1);  
+expect(wrapper.find('button').length).toEqual(1)
+expect(wrapper.find(Navbar).length).toEqual(0);  
   });
 
 
@@ -57,7 +57,8 @@ expect(wrapper.find(Navbars).length).toEqual(1);
     it('should call onSubmit o', () => {
         
       const onSubmit = jest.fn();
-      const component = mount(<Router><Create onSubmit={onSubmit} {...props} values="custom value" /></Router>);
+      const component = mount(<Provider store={store}><Router><Create onSubmit={onSubmit} {...props} values="custom value" /></Router> </Provider>);
+      console.log(component.find('[type="submit"]').first())
       act( () => {   
           component.find('[type="submit"]').first().simulate('click');
       })

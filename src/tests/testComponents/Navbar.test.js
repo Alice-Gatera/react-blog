@@ -44,9 +44,9 @@ test('Testing Navabar component ', () => {
 const wrapper= shallow(<Navbar {...props}/>)
 // expect(wrapper.find('form').length).toEqual(1)
 expect(wrapper.find(AppBar).length).toEqual(1)
-expect(wrapper.find(Typography).length).toEqual(1)
-expect(wrapper.find('Link').length).toEqual(2)
-expect(wrapper.find('button').length).toEqual(1)
+expect(wrapper.find(Typography).length).toEqual(6)
+expect(wrapper.find('Link').length).toEqual(4)
+expect(wrapper.find('button').length).toEqual(0)
 });
 test('Testing Navabar component when logged out', () => {
     const prop = props
@@ -54,7 +54,7 @@ test('Testing Navabar component when logged out', () => {
     const wrapper= shallow(<Navbar {...props}/>)
     // expect(wrapper.find('form').length).toEqual(1)
     expect(wrapper.find(AppBar).length).toEqual(1)
-    expect(wrapper.find(Typography).length).toEqual(1)
-    expect(wrapper.find('Link').length).toEqual(3)
+    expect(wrapper.find(Typography).length).toEqual(6)
+    expect(wrapper.find('Link').length).toEqual(4)
     expect(wrapper.find('button').length).toEqual(0)
     });
