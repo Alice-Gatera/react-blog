@@ -1,3 +1,4 @@
+import React from 'react'
 import Create from '../../Create'
 import {shallow,mount} from 'enzyme';
 import { TextField } from "@material-ui/core";
@@ -48,8 +49,7 @@ expect(wrapper.find('select').length).toEqual(1)
 expect(wrapper.find('label').length).toEqual(4)
 expect(wrapper.find('option').length).toEqual(3)
 expect(wrapper.find(TextField).length).toEqual(0)
-expect(wrapper.find('button').length).toEqual(1)
-expect(wrapper.find(Navbar).length).toEqual(0);  
+expect(wrapper.find(Button).length).toEqual(0)  
   });
 
 
@@ -64,4 +64,26 @@ expect(wrapper.find(Navbar).length).toEqual(0);
       })
   
   });
+  it("should update state on click", () => {
+    const setTitle = jest.fn();
+    const event = {
+      preventDefault() {},
+      target: { value: 'the-value' }
+    };
+  const  setSnippet = jest.fn();
+  const setBody = jest.fn();
+  const  setAuthor = jest.fn();
+  const onSubmit = jest.fn();
+  const component = mount(<Provider store={store}><Router><Create onSubmit={onSubmit} setTitle={setTitle} {...props} values="custom value" /></Router> </Provider>);
+   
+    const handleseTitle = jest.spyOn(React, "useState");
+    handleseTitle.mockImplementation(title => [title, setTitle]);
+    handleseTitle.mockImplementation(title => [title, setSnippet]);
+    handleseTitle.mockImplementation(title => [title, setBody]);
+    handleseTitle.mockImplementation(title => [title, setAuthor]);
+    component .find("input").first().simulate('change', event);
+    expect(setTitle).toBeTruthy();
+   
+  });
 })
+
