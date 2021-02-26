@@ -9,16 +9,27 @@ import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typo
 
 
 const Create = () => {
-  const [title, setTitle] = useState('');
-  const [snippet, setSnippet] = useState('');
-  const [body, setBody] = useState('');
-  const [author, setAuthor] = useState('Alice');
+  
+
+  const [info, setInfo] = useState({
+    title: '',
+    snippet: '',
+    body:'',
+    author:'Alice',
+})
+
+
+const handleChange = ({ target: { name, value } }) => {
+    let temp = { ...info }
+    temp[name] = value
+    setInfo(temp)
+}
   const history = useHistory();
   // const dispatch = useDispatch()
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const blog = { title,snippet, body, author };
+    const blog = info;
     // dispatch (createBlog(blog)) 
     history.push('/');
 
@@ -39,23 +50,26 @@ const Create = () => {
       <form onSubmit={handleSubmit}>
         <label>Blog title:</label>
         <input 
+        name='title'
           type="text" 
           required 
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={info.title}
+          onChange={handleChange}
         />
         <label>Blog Descriptio</label>
-        <input type="text" required value={snippet} onChange={(e) => setSnippet(e.target.value)}/>
+        <input type="text" name='snippet' required value={info.snippet} onChange={handleChange}/>
         <label>Blog body:</label>
         <textarea
           required
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
+          value={info.body}
+          name='body'
+          onChange={handleChange}
         ></textarea>
         <label>Blog author:</label>
         <select
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+        name='author'
+          value={info.author}
+          onChange={handleChange}
         >
           <option value="Alice">Alice</option>
           <option value="Gatera">Gatera</option>

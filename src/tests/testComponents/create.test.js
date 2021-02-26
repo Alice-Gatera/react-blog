@@ -65,24 +65,20 @@ expect(wrapper.find(Button).length).toEqual(0)
   
   });
   it("should update state on click", () => {
-    const setTitle = jest.fn();
+    const setInfo = jest.fn();
     const event = {
       preventDefault() {},
-      target: { value: 'the-value' }
+      target: { value: 'the-value',name:'title' }
     };
-  const  setSnippet = jest.fn();
-  const setBody = jest.fn();
-  const  setAuthor = jest.fn();
+  
   const onSubmit = jest.fn();
-  const component = mount(<Provider store={store}><Router><Create onSubmit={onSubmit} setTitle={setTitle} {...props} values="custom value" /></Router> </Provider>);
+  const component = mount(<Provider store={store}><Router><Create onSubmit={onSubmit} setTitle={setInfo} {...props} values="custom value" /></Router> </Provider>);
    
     const handleseTitle = jest.spyOn(React, "useState");
-    handleseTitle.mockImplementation(title => [title, setTitle]);
-    handleseTitle.mockImplementation(title => [title, setSnippet]);
-    handleseTitle.mockImplementation(title => [title, setBody]);
-    handleseTitle.mockImplementation(title => [title, setAuthor]);
+    handleseTitle.mockImplementation(info => [info, setInfo]);
+
     component .find("input").first().simulate('change', event);
-    expect(setTitle).toBeTruthy();
+    expect(setInfo).toBeTruthy();
    
   });
 })
