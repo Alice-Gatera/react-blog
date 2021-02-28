@@ -4,6 +4,9 @@ const initState = {
     auth: false
 }
 describe (' testing auth reducer', ()=>{
+
+
+  
     test('LOGIN_USER',()=>{
         const action =  {
         type: 'LOGIN_USER',
@@ -27,5 +30,12 @@ describe (' testing auth reducer', ()=>{
         const reducer = authReducer(initState, action)
         expect(reducer.auth).toBe(false)
     })
-
+    test ('LOOGOUT', ()=>{
+        const action ={
+            type: 'LOOGOUT',
+            auth: false
+        }
+        const reducer = authReducer(initState, action)
+        expect(reducer.auth).toBe(false)
+    })
 }) 

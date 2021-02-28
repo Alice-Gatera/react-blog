@@ -1,5 +1,6 @@
 import blogReducer from '../../../src/store/reducers/blogReducer'
 import deleteBlogReducer from '../../store/reducers/deleteBlogReducer'
+import rootReducer from '../../store/reducers/rootReducer'
 
  const initState ={
     data:null,
@@ -79,6 +80,30 @@ it('should  fail to delete blog ', ()=>{
 
 
 
+})
+it('should  fail to delete blog ', ()=>{
+    const action ={
+        type:'InitBlog',
+        
+    }
+    const reducer = blogReducer(initState, action)
+    expect(reducer ).toBe(initState)
+
+
+
+})
+
+it('should  fail to delete blog ', ()=>{
+    const action ={
+        type:'InitBlog',
+        
+    }
+    const reducer = deleteBlogReducer(initState, action)
+    expect(reducer ).toBe(initState)
+
+})
+it('test root reducer',()=>{
+    console.log(rootReducer);
 })
 
 })

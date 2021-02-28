@@ -35,7 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test ./src/tests/testComponents/Comments.test.js",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage ./src/tests"
+    "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage "
   },
   "eslintConfig": {
     "extends": [
