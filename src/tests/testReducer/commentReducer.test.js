@@ -24,6 +24,18 @@ import commentReducer from '../../store/reducers/commentReducer'
         // expect(reducer.undefined[0].text).toBe('comment')
         // expect(reducer.undefined[0].user).toBe('email')
     })
+
+    it('should  fail to delete blog ', ()=>{
+        const action ={
+            type:'InitBlog',
+            
+        }
+        const reducer = commentReducer(initState, action)
+        expect(reducer ).toBe({"undefined": []})
+    
+    
+    
+    })
  })
 
  
