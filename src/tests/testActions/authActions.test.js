@@ -145,5 +145,11 @@ const falseCred ={
 //         expect(expectedActions[0].type).toEqual('DELETE-BLOG-Fail')
 //       })
 //     })
+
+it('should test logout',()=>{
+  const Logout = actions.logout()
+  expect(Logout.auth).toBe(false)
+  expect(Logout.type).toBe('LOGOUT')
+})
   
     })
